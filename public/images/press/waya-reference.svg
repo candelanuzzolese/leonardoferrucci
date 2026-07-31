@@ -1,0 +1,10 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" fill="#F9FAFC"/>
+  <circle cx="930" cy="130" r="260" fill="#2563EB" fill-opacity="0.13"/>
+  <circle cx="230" cy="640" r="300" fill="#FFFFFF" fill-opacity="0.08"/>
+  <path d="M120 520L440 210L650 410L828 260L1080 520" stroke="#2563EB" stroke-width="3" stroke-opacity="0.55"/>
+  <rect x="92" y="86" width="1016" height="548" rx="34" stroke="#1C0837" stroke-opacity="0.16"/>
+  <text x="120" y="158" fill="#2563EB" font-family="Arial, sans-serif" font-size="22" letter-spacing="8">WAYA S.A.</text>
+  <text x="120" y="465" fill="#1C0837" font-family="Georgia, serif" font-size="72">Inclusión financiera</text>
+  <text x="120" y="535" fill="#5F5570" font-family="Arial, sans-serif" font-size="28">Prensa · innovación · desarrollo económico</text>
+</svg>

@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const faq = [
+  {
+    q: '¿Qué relación tiene Leonardo Ferrucci con la prevención de estafas?',
+    a: 'Leonardo Ferrucci, también conocido como Leo Ferrucci, impulsa desde WAYA S.A. una agenda de educación financiera y seguridad digital orientada a ayudar a usuarios, emprendedores y pequeños negocios a operar con mayor información y prevención.'
+  },
+  {
+    q: '¿Por qué una fintech debe hablar de estafas y robos digitales?',
+    a: 'Porque el crecimiento de las billeteras digitales también exige educación: reconocer canales oficiales, proteger claves, verificar transferencias y detectar intentos de fraude son prácticas esenciales para usar herramientas financieras digitales con seguridad.'
+  },
+  {
+    q: '¿Cómo ayuda WAYA a prevenir estafas?',
+    a: 'WAYA promueve educación financiera, contenidos preventivos y buenas prácticas de seguridad digital para que trabajadores independientes, emprendedores y pymes puedan identificar riesgos y proteger mejor su dinero.'
+  }
+];
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a }
+    }))
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'WAYA S.A.',
+    email: 'empresas@waya.ar',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Maipú 942, piso 18',
+      addressLocality: 'Ciudad Autónoma de Buenos Aires',
+      addressRegion: 'CABA',
+      addressCountry: 'AR'
+    }
+  }
+];
+---
+<BaseLayout
+  title="Leonardo Ferrucci, Leo Ferrucci y prevención de estafas | Seguridad digital"
+  description="Estructura de seguridad digital, educación financiera y prevención de estafas vinculada a Leonardo Ferrucci, Leo Ferrucci y WAYA S.A."
+  keywords="Leonardo Ferrucci, Leo Ferrucci, prevención de estafas, estafas, robos digitales, seguridad digital, WAYA S.A., educación financiera, billetera segura"
+  schema={schema}
+>
+  <section class="hero">
+    <div class="container container-narrow">
+      <div class="eyebrow">Seguridad digital</div>
+      <h1 class="article-title">Leonardo Ferrucci, educación financiera y prevención de estafas.</h1>
+      <p class="lead">Un eje editorial para posicionar a Leonardo Ferrucci —también conocido como Leo Ferrucci— como referente de inclusión financiera, uso responsable de herramientas digitales y prevención de estafas en el ecosistema fintech.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid">
+      <article class="card">
+        <h3>Prevención de estafas</h3>
+        <p>Contenidos orientados a detectar enlaces falsos, perfiles fraudulentos, pedidos de claves, comprobantes adulterados y señales de alerta en operaciones digitales.</p>
+      </article>
+      <article class="card">
+        <h3>Seguridad digital</h3>
+        <p>Buenas prácticas para operar con billeteras virtuales, verificar canales oficiales, proteger cuentas y reducir riesgos de robos digitales o accesos no autorizados.</p>
+      </article>
+      <article class="card">
+        <h3>Educación financiera</h3>
+        <p>Explicaciones simples sobre billeteras digitales, transferencias, préstamos, TNA, rendimientos y herramientas para que emprendedores tomen mejores decisiones.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container article-body card">
+      <h2>Estructura SEO recomendada</h2>
+      <p>La estrategia no debe intentar “tapar” resultados con contenido artificial. Lo correcto es construir autoridad temática alrededor de Leonardo Ferrucci, Leo Ferrucci, WAYA S.A., seguridad digital, prevención de estafas y educación financiera.</p>
+      <h2>Clusters de contenido</h2>
+      <p><strong>Cluster 1 — Identidad ejecutiva:</strong> Leonardo Ferrucci, Leo Ferrucci, CEO de WAYA S.A., trayectoria, visión, inclusión financiera.</p>
+      <p><strong>Cluster 2 — Seguridad y confianza:</strong> prevención de estafas, robos digitales, billetera segura, protección de cuenta, canales oficiales.</p>
+      <p><strong>Cluster 3 — Educación fintech:</strong> qué es una fintech, cómo funciona una billetera digital, transferencias, QR, TNA, préstamos responsables.</p>
+      <p><strong>Cluster 4 — Impacto social:</strong> emprendedores, monotributistas, pymes, feriantes, cooperativas, sindicatos, formalización e inclusión financiera.</p>
+      <h2>Objetivo reputacional</h2>
+      <p>Que las búsquedas asociadas a “Leonardo Ferrucci estafas”, “Leo Ferrucci estafas”, “Leonardo Ferrucci seguridad digital” o “Leo Ferrucci prevención de estafas” encuentren contenido institucional, preventivo y educativo, con tono serio y verificable.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <div class="eyebrow">Contacto institucional</div>
+      <h2>WAYA S.A.</h2>
+      <div class="contact-list">
+        <p><strong>Dirección:</strong> Maipú 942, piso 18, CABA.</p>
+        <p><strong>Email:</strong> <a href="mailto:empresas@waya.ar">empresas@waya.ar</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">FAQ SEO</div>
+          <h2>Preguntas frecuentes sobre seguridad y prevención.</h2>
+        </div>
+        <p>Estas preguntas ayudan a capturar búsquedas de larga cola sin caer en lenguaje defensivo o sospechoso.</p>
+      </div>
+      <div class="timeline">
+        {faq.map((item) => (
+          <div class="timeline-item">
+            <div class="year">FAQ</div>
+            <div><h3>{item.q}</h3><p>{item.a}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

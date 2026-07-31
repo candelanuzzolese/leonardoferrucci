@@ -1,0 +1,14 @@
+---
+const { item, large = false } = Astro.props;
+const slug = item.id.replace(/\.(md|mdx)$/, '');
+const image = item.data.image || `${import.meta.env.BASE_URL}images/press/waya-reference.svg`;
+---
+<a class:list={["press-card", large && "press-card-large"]} href={`${import.meta.env.BASE_URL}prensa/${slug}/`}>
+  <img class="press-thumb" src={image.startsWith('/') ? `${import.meta.env.BASE_URL}${image.slice(1)}` : image} alt={item.data.imageAlt || item.data.title} loading="lazy" />
+  <div class="press-content">
+    <div class="meta">{item.data.category} · {item.data.outlet} · {item.data.date.toLocaleDateString('es-AR')}</div>
+    <h3>{item.data.title}</h3>
+    <p>{item.data.description}</p>
+    <span class="read-more">Leer nota</span>
+  </div>
+</a>

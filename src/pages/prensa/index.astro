@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PressCard from '../../components/PressCard.astro';
+import { getCollection } from 'astro:content';
+const press = (await getCollection('press')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const featured = press.find((item) => item.data.featured) || press[0];
+const rest = press.filter((item) => item.id !== featured?.id);
+const categories = [...new Set(press.map((item) => item.data.category))];
+---
+<BaseLayout title="Prensa | Leonardo Ferrucci" description="Prensa, entrevistas y menciones de Leonardo Ferrucci, Leo Ferrucci, CEO y Presidente de WAYA S.A., sobre fintech, inclusión financiera, prevención de estafas y educación financiera.">
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Sala de prensa</div>
+      <h1 class="press-title">Archivo público de notas y menciones.</h1>
+      <p class="lead">Publicaciones vinculadas a Leonardo Ferrucci, Leo Ferrucci, WAYA S.A. y las iniciativas de inclusión financiera, innovación, prevención de estafas, educación financiera y desarrollo económico impulsadas desde la compañía.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="press-toolbar">
+        {categories.map((category) => <span class="pill">{category}</span>)}
+      </div>
+      <div class="press-shell">
+        <div class="press-list">
+          {featured && <PressCard item={featured} large />}
+          {rest.map((item) => <PressCard item={item} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PressCard from '../components/PressCard.astro';
+import { getCollection } from 'astro:content';
+const press = (await getCollection('press')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+---
+<BaseLayout>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Perfil institucional</div>
+        <h1>Leonardo Ferrucci.</h1>
+        <p class="lead">Leonardo Ferrucci, también conocido como Leo Ferrucci, es CEO y Presidente de WAYA S.A., fintech argentina enfocada en ampliar el acceso a herramientas financieras digitales para trabajadores independientes, emprendedores, pymes y organizaciones de la economía social, con especial atención en educación financiera y prevención de estafas.</p>
+        <div class="actions">
+          <a class="btn primary" href={`${import.meta.env.BASE_URL}historia/`}>Ver perfil ejecutivo</a>
+          <a class="btn" href={`${import.meta.env.BASE_URL}prensa/`}>Prensa y menciones</a>
+        </div>
+      </div>
+      <div class="portrait-wrap">
+        <img class="portrait" src={`${import.meta.env.BASE_URL}images/leonardo-ferrucci.jpg`} alt="Retrato de Leonardo Ferrucci" />
+        <div class="portrait-caption"><span>WAYA S.A.</span><span>Argentina</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="liderazgo">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker-line"></div>
+          <div class="eyebrow">Liderazgo</div>
+          <h2>Una trayectoria orientada a estrategia, innovación y desarrollo de negocios.</h2>
+        </div>
+        <p>Con más de 20 años de experiencia, Ferrucci ha participado en proyectos de transformación digital, consultoría estratégica y expansión de negocios en Argentina y el exterior, con foco en servicios financieros, telecomunicaciones, educación, consumo masivo e investigación de mercados.</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><strong>20+</strong><span>años de experiencia</span></div>
+        <div class="stat"><strong>CEO</strong><span>y Presidente de WAYA S.A.</span></div>
+        <div class="stat"><strong>Fintech</strong><span>inclusión financiera digital</span></div>
+        <div class="stat"><strong>LatAm</strong><span>visión regional e impacto social</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid">
+      <article class="card"><h3>Visión ejecutiva</h3><p>Construir un ecosistema financiero más accesible, transparente y centrado en las necesidades de quienes históricamente enfrentaron mayores barreras de acceso, incluyendo educación para prevenir estafas y operar con mayor seguridad.</p></article>
+      <article class="card"><h3>Innovación aplicada</h3><p>Desde WAYA impulsa soluciones como billetera digital, pagos electrónicos, herramientas de gestión, scoring alternativo, educación financiera y contenidos orientados a la prevención de estafas.</p></article>
+      <article class="card"><h3>Impacto institucional</h3><p>Promueve alianzas con sindicatos, cooperativas, organismos públicos e instituciones internacionales para apoyar formalización laboral y desarrollo económico.</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="quote">“Padre, fanático de la microeconomía y emprendedor por siempre.”</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Sala de prensa</div>
+          <h2>Notas, entrevistas y menciones.</h2>
+        </div>
+        <p>Un archivo editorial para reunir publicaciones relevantes sobre Leonardo Ferrucci, Leo Ferrucci, WAYA S.A. y las iniciativas vinculadas a inclusión financiera, tecnología, prevención de estafas y desarrollo productivo.</p>
+      </div>
+      <div class="press-shell">
+        <div class="press-list">
+          {press.map((item) => <PressCard item={item} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacto">
+    <div class="container card">
+      <div class="eyebrow">Contacto institucional</div>
+      <h2>Información para prensa y alianzas.</h2>
+      <p>Para consultas institucionales, prensa o alianzas empresariales, contactar a WAYA S.A.</p>
+      <div class="contact-list">
+        <p><strong>Dirección:</strong> Maipú 942, piso 18, CABA.</p>
+        <p><strong>Email:</strong> <a href="mailto:empresas@waya.ar">empresas@waya.ar</a></p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

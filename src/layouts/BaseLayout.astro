@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+const {
+  title = 'Leonardo Ferrucci | Leo Ferrucci | CEO y Presidente de WAYA S.A.',
+  description = 'Perfil institucional de Leonardo Ferrucci, también conocido como Leo Ferrucci, CEO y Presidente de WAYA S.A.: liderazgo, inclusión financiera, prevención de estafas, trayectoria y prensa.',
+  keywords = 'Leonardo Ferrucci, Leo Ferrucci, WAYA S.A., prevención de estafas, estafas, fintech, inclusión financiera, educación financiera',
+  schema = null
+} = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <title>{title}</title>
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a class="brand brand-with-avatar" href={`${import.meta.env.BASE_URL}`}>
+          <img class="brand-avatar" src={`${import.meta.env.BASE_URL}images/leonardo-ferrucci.jpg`} alt="Leonardo Ferrucci" />
+          <span class="brand-text">
+            <strong>Leonardo Ferrucci</strong>
+            <small>CEO & Presidente · WAYA S.A.</small>
+          </span>
+        </a>
+        <div class="nav-links">
+          <a href={`${import.meta.env.BASE_URL}historia/`}>Perfil</a>
+          <a href={`${import.meta.env.BASE_URL}#liderazgo`}>Liderazgo</a>
+          <a href={`${import.meta.env.BASE_URL}prensa/`}>Prensa</a>
+          <a href={`${import.meta.env.BASE_URL}seguridad-digital/`}>Seguridad</a>
+          <a href={`${import.meta.env.BASE_URL}#contacto`}>Contacto</a>
+        </div>
+      </div>
+    </nav>
+    <main><slot /></main>
+    <footer class="footer">
+      <div class="container">
+        <strong>WAYA S.A.</strong> · Maipú 942, piso 18, CABA · <a href="mailto:empresas@waya.ar">empresas@waya.ar</a>
+      </div>
+    </footer>
+  </body>
+</html>
