@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://candelanuzzolese.github.io/leonardoferrucci/sitemap.xml
